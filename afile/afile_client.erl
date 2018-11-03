@@ -15,8 +15,8 @@ get_file(Server, File) ->
 			Content
 	end.
 
-put_file(Server,FilePath, Filename) ->
-	Server ! {self(), {put_file, FilePath, Filename}},
+put_file(Server, File, String) ->
+	Server ! {self(), {put_file, File, String}},
 	receive
 		{Server, Content} -> 
 			Content
